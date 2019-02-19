@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <stdint.h>
+#include <Servo.h>
 
 #include "Motor/Motor.h"
 #include "SerialIO/SerialIO.h"
@@ -7,9 +8,10 @@
 #include "parameters.h"
 #include "RoblucksServo/RoblucksServo.h"
 
-Motor motor;
+Motor motor(MOTOR_PIN);
+RoblucksServo servo(SERVO_PIN);
+
 SerialIO serialIO;
-RoblucksServo servo;
 
 bool isConnected = false;
 

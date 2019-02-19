@@ -1,2 +1,0 @@
-/usr/bin/avr-ar qc libuno_RoblucksServo.a  CMakeFiles/uno_RoblucksServo.dir/RoblucksServo/RoblucksServo.cpp.obj
-/usr/bin/avr-ranlib libuno_RoblucksServo.a

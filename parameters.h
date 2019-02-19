@@ -18,4 +18,7 @@
 // If DEBUG is set to true, the arduino will send back all the received messages
 #define DEBUG false
 
+#define MOTOR_PIN             10
+#define SERVO_PIN              9
+
 #endif //CMAKELISTS_TXT_PARAMETERS_H

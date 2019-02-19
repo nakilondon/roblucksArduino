@@ -6,19 +6,103 @@
 #include "../Message.h"
 #include "SerialIO/SerialIO.h"
 
+Motor::Motor(short pin, bool sendToMotor) {
+    _pin = pin;
+    _sendToMotor = sendToMotor;
+    _motorControl.attach(_pin);
+    _Arm();
+}
+
+Motor::~Motor() {
+    _motorControl.detach();
+}
 
 bool Motor::processRequest()
 {
     SerialIO serialIO;
     MotorCmd motorCmd = (MotorCmd) serialIO.read_i8();
-    uint8_t speed = serialIO.read_i8();
-    serialIO.writeMessage(STRING);
+    uint8_t speed;
+
     String msgToPI = "In Motor, cmd: ";
     msgToPI += String(motorCmd);
-    msgToPI += " speed: ";
-    msgToPI += String(speed);
-    msgToPI += '\n';
-    Serial.write(msgToPI.c_str());
 
+    if (motorCmd == FORWARD || motorCmd == REVERSE) {
+        speed = serialIO.read_i8();
+        msgToPI += " speed: ";
+        msgToPI += String(speed);
+    }
+    _serialIO.outputTrace(msgToPI);
+
+    switch (motorCmd){
+        case FORWARD:{
+            _serialIO.outputTrace("Forward requested");
+
+            if (_lastMotorCmd == REVERSE){
+                stop();
+            }
+
+            _Speed(map(speed, 0, 100, FORWARD_MIN, FORWARD_MAX) );
+            break;
+        }
+        case REVERSE:{
+            _serialIO.outputTrace("Reverse requested");
+
+            if (_lastMotorCmd == FORWARD){
+                stop();
+            }
+
+            _Speed(map(speed, 0, 100, REVERSE_MIN, REVERSE_MAX) );
+            break;
+
+        }
+        case STOP:{
+            _serialIO.outputTrace("Stop requested");
+            stop();
+            break;
+        }
+        case ARM:{
+            _serialIO.outputTrace("Arm requested");
+            _Arm();
+            break;
+        }
+        default:{
+            _serialIO.outputTrace("Unkown motor request");
+            break;
+        }
+    }
+
+    _lastMotorCmd = motorCmd;
     return true;
+}
+
+void Motor::_Speed(short requestedSpeed) {
+    _serialIO.outputTrace("Requested speed: " + String(requestedSpeed));
+
+    if (requestedSpeed > FORWARD_MAX || requestedSpeed < REVERSE_MAX){
+        _serialIO.outputTrace("Invalid speed");
+        return;
+    }
+
+    if (_sendToMotor) {
+        _serialIO.outputTrace("Sending to ESC");
+        _motorControl.writeMicroseconds(requestedSpeed);
+    }
+}
+
+
+void Motor::stop() {
+    _serialIO.outputTrace("Stopping");
+    _Speed(THROTTLE_BAKE);
+    delay(100);
+}
+
+void Motor::_Arm() {
+    _motorControl.detach();
+    delay(2000);
+    _motorControl.attach(_pin);
+    _Speed(THROTTLE_NETURAL);
+    _serialIO.outputTrace("Arming........");   // just some display message
+    delay(2000);
+    _serialIO.outputTrace("Arming........After delay");
+    _Speed(THROTTLE_NETURAL);
 }

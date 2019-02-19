@@ -1,2 +1,0 @@
-/usr/bin/avr-ar qc libuno_Message.a  CMakeFiles/uno_Message.dir/Motor/Motor.cpp.obj
-/usr/bin/avr-ranlib libuno_Message.a

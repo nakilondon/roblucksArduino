@@ -1,2 +1,0 @@
-/usr/bin/avr-ar qc libuno_SerialIO.a  CMakeFiles/uno_SerialIO.dir/SerialIO/SerialIO.cpp.obj
-/usr/bin/avr-ranlib libuno_SerialIO.a

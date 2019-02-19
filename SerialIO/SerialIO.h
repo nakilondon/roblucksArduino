@@ -8,6 +8,9 @@
 #include "../Message.h"
 
 class SerialIO {
+private:
+    bool _sendTrace = true;
+
 public:
     void wait_for_bytes(int num_bytes, unsigned long timeout);
     void read_signed_bytes(int8_t *buffer, size_t n);
@@ -19,6 +22,7 @@ public:
     void write_i16(int16_t num);
     void write_i32(int32_t num);
     Message readMessage();
+    void outputTrace(String traceMsg);
 };
 
 
