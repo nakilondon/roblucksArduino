@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/james/Roblucks/roblucksArduino/Message.h
+Arduino.h
+-
+
+/home/james/Roblucks/roblucksArduino/RoblucksServo/RoblucksServo.cpp
+RoblucksServo.h
+/home/james/Roblucks/roblucksArduino/RoblucksServo/RoblucksServo.h
+../Message.h
+/home/james/Roblucks/roblucksArduino/Message.h
+../SerialIO/SerialIO.h
+/home/james/Roblucks/roblucksArduino/SerialIO/SerialIO.h
+
+/home/james/Roblucks/roblucksArduino/RoblucksServo/RoblucksServo.h
+Arduino.h
+-
+
+/home/james/Roblucks/roblucksArduino/SerialIO/SerialIO.h
+../Message.h
+/home/james/Roblucks/roblucksArduino/Message.h
+

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="roblucksArduino"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\Platform\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="upload">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 upload"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="roblucksArduino-upload">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 roblucksArduino-upload"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_Motor">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_Motor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_Motor"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_Motor/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_Motor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_Motor/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="roblucksArduino-size">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 roblucksArduino-size"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_CORE">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_CORE.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_CORE"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_CORE/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_CORE.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_CORE/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_Message">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_Message.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_Message"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_Message/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_Message.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_Message/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="roblucksArduino">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/roblucksArduino.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 roblucksArduino"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="roblucksArduino/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/roblucksArduino.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 roblucksArduino/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_SerialIO">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_SerialIO.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_SerialIO"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_SerialIO/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_SerialIO.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_SerialIO/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_RoblucksServo">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_RoblucksServo.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_RoblucksServo"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uno_RoblucksServo/fast">
+				<Option output="/home/james/Roblucks/roblucksArduino/cmake-build-debug/libuno_RoblucksServo.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/james/Roblucks/roblucksArduino/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/Motor/Message/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/SerialIO/utility"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/src"/>
+					<Add directory="/home/james/Roblucks/roblucksArduino/RoblucksServo/utility"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/avr/5.4.0/../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 uno_RoblucksServo/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/james/Roblucks/roblucksArduino/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/Motor/Motor.cpp">
+			<Option target="uno_Motor"/>
+			<Option target="uno_Message"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/Motor/Motor.h">
+			<Option target="uno_Motor"/>
+			<Option target="uno_Message"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/RoblucksServo/RoblucksServo.cpp">
+			<Option target="uno_RoblucksServo"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/RoblucksServo/RoblucksServo.h">
+			<Option target="uno_RoblucksServo"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/SerialIO/SerialIO.cpp">
+			<Option target="uno_SerialIO"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/SerialIO/SerialIO.h">
+			<Option target="uno_SerialIO"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/cmake-build-debug/roblucksArduino_roblucksArduino.ino.cpp">
+			<Option target="roblucksArduino"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/cmake-build-debug/roblucksArduino_roblucksArduino.ino.cpp.rule">
+			<Option target="roblucksArduino"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/roblucksArduino.ino">
+			<Option target="roblucksArduino"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/CDC.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Client.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/HID.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/IPAddress.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/IPAddress.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Platform.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Print.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Print.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Printable.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Server.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Stream.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Stream.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Tone.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/USBAPI.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/USBCore.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/USBCore.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/USBDesc.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/Udp.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/WInterrupts.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/WMath.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/WString.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/WString.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/avr-libc/malloc.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/avr-libc/realloc.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/avr-libc/sectionname.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/avr-libc/stdlib_private.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/binary.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/main.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/new.cpp">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/new.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring_analog.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring_digital.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring_private.h">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring_pulse.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/usr/share/arduino/hardware/arduino/cores/arduino/wiring_shift.c">
+			<Option target="uno_CORE"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/cmake/ArduinoToolchain.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/james/Roblucks/roblucksArduino/cmake/Platform/Arduino.cmake">
+			<Option virtualFolder="CMake Files\cmake\Platform\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
