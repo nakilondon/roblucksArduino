@@ -19,12 +19,10 @@ private:
     bool _sendToServo;
 
     short _pin;
-    void _ServoOpertation(short requestedDirection);
+    void _ServoOpertation(int requestedDirection);
 
 public:
-    RoblucksServo(short pin, bool sendToServo = true);
-    ~RoblucksServo();
-
+    void begin(short pin, bool sendToServo = true);
     bool processRequest();
 };
 

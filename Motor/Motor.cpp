@@ -6,15 +6,11 @@
 #include "../Message.h"
 #include "SerialIO/SerialIO.h"
 
-Motor::Motor(short pin, bool sendToMotor) {
+void Motor::begin(short pin, bool sendToMotor) {
     _pin = pin;
     _sendToMotor = sendToMotor;
     _motorControl.attach(_pin);
     _Arm();
-}
-
-Motor::~Motor() {
-    _motorControl.detach();
 }
 
 bool Motor::processRequest()

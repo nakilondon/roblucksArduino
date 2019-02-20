@@ -7,14 +7,10 @@
 #include "../Message.h"
 #include "../SerialIO/SerialIO.h"
 
-RoblucksServo::RoblucksServo(short pin, bool sendToServo) {
+void RoblucksServo::begin(short pin, bool sendToServo) {
     _pin = pin;
     _sendToServo = sendToServo;
     _servoControl.attach(_pin);
-}
-
-RoblucksServo::~RoblucksServo() {
-    _servoControl.detach();
 }
 
 bool RoblucksServo::processRequest()
@@ -56,9 +52,9 @@ bool RoblucksServo::processRequest()
     return true;
 }
 
-void RoblucksServo::_ServoOpertation(short requestedDirection) {
-    if (requestedDirection > LEFT || requestedDirection < RIGHT){
-        _serialIO.outputTrace("Invalid servo direction");
+void RoblucksServo::_ServoOpertation(int requestedDirection) {
+    if (requestedDirection > SERVO_LEFT || requestedDirection < SERVO_RIGHT){
+        _serialIO.outputTrace("Invalid servo direction: " + String(requestedDirection));
         return;
     }
 

@@ -30,8 +30,7 @@ private:
     void _Speed(short requestedSpeed);
 
 public:
-    Motor(short pin, bool sendToMotor = true);
-    ~Motor();
+    void begin(short pin, bool sendToMotor = true);
     bool processRequest();
     void stop();
 };

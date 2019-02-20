@@ -67,6 +67,9 @@ void SerialIO::read_signed_bytes(int8_t *buffer, size_t n) {
 }
 
 void SerialIO::outputTrace(String traceMsg) {
-    if (_sendTrace)
-        Serial.write(traceMsg.c_str()+'\n');
+    if (_sendTrace) {
+        writeMessage(STRING);
+        traceMsg += "\n";
+        Serial.write(traceMsg.c_str());
+    }
 }

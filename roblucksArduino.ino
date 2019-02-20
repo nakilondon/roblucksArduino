@@ -1,16 +1,13 @@
 #include <Arduino.h>
 #include <stdint.h>
-#include <Servo.h>
-
-#include "Motor/Motor.h"
-#include "SerialIO/SerialIO.h"
 #include "Message.h"
+#include "SerialIO/SerialIO.h"
+#include "Motor/Motor.h"
 #include "parameters.h"
 #include "RoblucksServo/RoblucksServo.h"
 
-Motor motor(MOTOR_PIN);
-RoblucksServo servo(SERVO_PIN);
-
+Motor motor;
+RoblucksServo servo;
 SerialIO serialIO;
 
 bool isConnected = false;
@@ -39,8 +36,8 @@ bool getMessageFromServer(){
                 break;
             }
             default: {
-                serialIO.writeMessage(STRING);
-                Serial.write("Default Message\n");
+                //serialIO.writeMessage(STRING);
+                serialIO.outputTrace("Default Message");
                 return false;
             }
         }
@@ -58,6 +55,8 @@ void setup() {
         getMessageFromServer();
     }
 
+    motor.begin(MOTOR_PIN);
+    servo.begin(SERVO_PIN);
 }
 
 void loop() {
