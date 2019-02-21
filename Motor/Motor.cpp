@@ -15,15 +15,14 @@ void Motor::begin(short pin, bool sendToMotor) {
 
 bool Motor::processRequest()
 {
-    SerialIO serialIO;
-    MotorCmd motorCmd = (MotorCmd) serialIO.read_i8();
-    uint8_t speed;
+    MotorCmd motorCmd = static_cast<MotorCmd>(_serialIO.read_i8());
+    uint8_t speed = 0;
 
     String msgToPI = "In Motor, cmd: ";
     msgToPI += String(motorCmd);
 
     if (motorCmd == FORWARD || motorCmd == REVERSE) {
-        speed = serialIO.read_i8();
+        speed = static_cast<uint8_t>(_serialIO.read_i8());
         msgToPI += " speed: ";
         msgToPI += String(speed);
     }
@@ -37,7 +36,7 @@ bool Motor::processRequest()
                 stop();
             }
 
-            _Speed(map(speed, 0, 100, FORWARD_MIN, FORWARD_MAX) );
+            _Speed(static_cast<int>(map(speed, 0, 100, FORWARD_MIN, FORWARD_MAX)));
             break;
         }
         case REVERSE:{
@@ -47,7 +46,7 @@ bool Motor::processRequest()
                 stop();
             }
 
-            _Speed(map(speed, 0, 100, REVERSE_MIN, REVERSE_MAX) );
+            _Speed(static_cast<int>(map(speed, 0, 100, REVERSE_MIN, REVERSE_MAX)));
             break;
 
         }

@@ -22,9 +22,8 @@ private:
     Servo _motorControl;
     bool _sendToMotor;
     short _pin;
+    MotorCmd _lastMotorCmd;
     SerialIO _serialIO;
-    MotorCmd _lastMotorCmd = STOP;
-
 
     void _Arm();
     void _Speed(short requestedSpeed);

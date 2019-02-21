@@ -20,9 +20,9 @@ bool RoblucksServo::processRequest()
     String msgToPI = "In Servo, cmd: ";
     msgToPI += String(servoCmd);
 
-    uint8_t howFar;
-    if(servoCmd != STOP) {
-        howFar = _serialIO.read_i8();
+    uint8_t howFar = 0;
+    if(servoCmd != CENTER) {
+        howFar = static_cast<uint8_t >(_serialIO.read_i8());
         msgToPI += " how far: ";
         msgToPI += String(howFar);
     }
@@ -30,13 +30,13 @@ bool RoblucksServo::processRequest()
 
     switch (servoCmd) {
         case RIGHT: {
-            _serialIO.outputTrace("Right requested");
-            _ServoOpertation(map(howFar, 0, 100, SERVO_CENTER, SERVO_RIGHT) );
+             _serialIO.outputTrace("Right requested");
+            _ServoOpertation(static_cast<int>(map(howFar, 0, 100, SERVO_CENTER, SERVO_RIGHT)));
             break;
         }
         case LEFT: {
             _serialIO.outputTrace("Left requested");
-            _ServoOpertation(map(howFar, 0, 100, SERVO_CENTER, SERVO_LEFT) );
+            _ServoOpertation(static_cast<int>(map(howFar, 0, 100, SERVO_CENTER, SERVO_LEFT)));
             break;
         }
         case CENTER: {

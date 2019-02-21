@@ -14,7 +14,7 @@ void SerialIO::wait_for_bytes(int num_bytes, unsigned long timeout) {
 
 void SerialIO::writeMessage(enum Message message) {
     uint8_t *Order = (uint8_t*) &message;
-    Serial.write(Order, sizeof(uint8_t));
+    Serial.write(Order, sizeof(*Order));
 }
 
 void SerialIO::write_i8(int8_t num) {
@@ -72,4 +72,8 @@ void SerialIO::outputTrace(String traceMsg) {
         traceMsg += "\n";
         Serial.write(traceMsg.c_str());
     }
+}
+
+void SerialIO::setTrace(bool sendTrace) {
+    _sendTrace = sendTrace;
 }

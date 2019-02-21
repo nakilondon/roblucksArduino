@@ -6,11 +6,10 @@
 #include "parameters.h"
 #include "RoblucksServo/RoblucksServo.h"
 
-Motor motor;
-RoblucksServo servo;
-SerialIO serialIO;
-
-bool isConnected = false;
+Motor               motor;
+RoblucksServo       servo;
+SerialIO            serialIO;
+bool isConnected =  false;
 
 bool getMessageFromServer(){
     if(Serial.available()) {
@@ -36,7 +35,6 @@ bool getMessageFromServer(){
                 break;
             }
             default: {
-                //serialIO.writeMessage(STRING);
                 serialIO.outputTrace("Default Message");
                 return false;
             }
@@ -47,6 +45,7 @@ bool getMessageFromServer(){
 
 void setup() {
     Serial.begin(SERIAL_BAUD);
+    serialIO.setTrace(true);
 
     while(!isConnected)
     {

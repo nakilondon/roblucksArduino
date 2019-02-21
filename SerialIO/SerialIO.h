@@ -9,9 +9,10 @@
 
 class SerialIO {
 private:
-    bool _sendTrace = true;
+    bool _sendTrace;
 
 public:
+    void setTrace(bool sendTrace);
     void wait_for_bytes(int num_bytes, unsigned long timeout);
     void read_signed_bytes(int8_t *buffer, size_t n);
     int8_t read_i8();

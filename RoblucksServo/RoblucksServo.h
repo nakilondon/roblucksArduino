@@ -15,8 +15,8 @@
 class RoblucksServo {
 private:
     Servo _servoControl;
-    SerialIO _serialIO;
     bool _sendToServo;
+    SerialIO _serialIO;
 
     short _pin;
     void _ServoOpertation(int requestedDirection);
