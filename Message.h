@@ -15,7 +15,7 @@ enum Message {
     ERROR = 5,
     RECEIVED = 6,
  //   STOP = 6,
-    STRING = 7
+    LOG = 7
 };
 
 enum MotorCmd {
@@ -32,4 +32,13 @@ enum ServoCmd{
 };
 
 typedef enum Message Message;
+
+enum LogLevel {
+    LOG_DEBUG = 0,
+    LOG_INFO = 1,
+    LOG_WARNING = 2,
+    LOG_ERROR = 3,
+    LOG_CRITICAL = 4
+};
+
 #endif //CMAKELISTS_TXT_ORDERS_H

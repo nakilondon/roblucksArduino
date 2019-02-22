@@ -29,7 +29,7 @@ private:
     void _Speed(short requestedSpeed);
 
 public:
-    void begin(short pin, bool sendToMotor = true);
+    void begin(short pin, SerialIO *serialIO, bool sendToMotor = true);
     bool processRequest();
     void stop();
 };

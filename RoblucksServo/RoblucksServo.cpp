@@ -7,10 +7,11 @@
 #include "../Message.h"
 #include "../SerialIO/SerialIO.h"
 
-void RoblucksServo::begin(short pin, bool sendToServo) {
+void RoblucksServo::begin(short pin, SerialIO *serialIO, bool sendToServo) {
     _pin = pin;
     _sendToServo = sendToServo;
     _servoControl.attach(_pin);
+    _serialIO = *serialIO;
 }
 
 bool RoblucksServo::processRequest()
@@ -26,26 +27,26 @@ bool RoblucksServo::processRequest()
         msgToPI += " how far: ";
         msgToPI += String(howFar);
     }
-    _serialIO.outputTrace(msgToPI);
+    _serialIO.logMsg(LOG_DEBUG, msgToPI);
 
     switch (servoCmd) {
         case RIGHT: {
-             _serialIO.outputTrace("Right requested");
+             _serialIO.logMsg(LOG_DEBUG,"Right requested");
             _ServoOpertation(static_cast<int>(map(howFar, 0, 100, SERVO_CENTER, SERVO_RIGHT)));
             break;
         }
         case LEFT: {
-            _serialIO.outputTrace("Left requested");
+            _serialIO.logMsg(LOG_DEBUG,"Left requested");
             _ServoOpertation(static_cast<int>(map(howFar, 0, 100, SERVO_CENTER, SERVO_LEFT)));
             break;
         }
         case CENTER: {
-            _serialIO.outputTrace("Center requested");
+            _serialIO.logMsg(LOG_DEBUG, "Center requested");
             _ServoOpertation(SERVO_CENTER);
             break;
         }
         default: {
-            _serialIO.outputTrace("Invalid servo command");
+            _serialIO.logMsg(LOG_ERROR, "Invalid servo command");
             break;
         }
     }
@@ -54,12 +55,12 @@ bool RoblucksServo::processRequest()
 
 void RoblucksServo::_ServoOpertation(int requestedDirection) {
     if (requestedDirection > SERVO_LEFT || requestedDirection < SERVO_RIGHT){
-        _serialIO.outputTrace("Invalid servo direction: " + String(requestedDirection));
+        _serialIO.logMsg(LOG_ERROR, "Invalid servo direction: " + String(requestedDirection));
         return;
     }
 
     if (_sendToServo) {
-        _serialIO.outputTrace("Sending to Servo " + String(requestedDirection));
+        _serialIO.logMsg(LOG_DEBUG, "Sending to Servo " + String(requestedDirection));
         _servoControl.writeMicroseconds(requestedDirection);
     }
 }
