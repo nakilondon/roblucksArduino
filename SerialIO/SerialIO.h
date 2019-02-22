@@ -23,7 +23,7 @@ public:
     void write_i16(int16_t num);
     void write_i32(int32_t num);
     Message readMessage();
-    void outputTrace(String traceMsg);
+    void logMsg(LogLevel logLevel, String traceMsg);
 };
 
 

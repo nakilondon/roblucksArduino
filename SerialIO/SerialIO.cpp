@@ -66,9 +66,10 @@ void SerialIO::read_signed_bytes(int8_t *buffer, size_t n) {
     }
 }
 
-void SerialIO::outputTrace(String traceMsg) {
+void SerialIO::logMsg(LogLevel logLevel, String traceMsg) {
     if (_sendTrace) {
-        writeMessage(STRING);
+        writeMessage(LOG);
+        write_i8(static_cast<int8_t >(logLevel));
         traceMsg += "\n";
         Serial.write(traceMsg.c_str());
     }

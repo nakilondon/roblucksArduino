@@ -35,7 +35,7 @@ bool getMessageFromServer(){
                 break;
             }
             default: {
-                serialIO.outputTrace("Default Message");
+                serialIO.logMsg(LOG_ERROR, "Unkown message recevied");
                 return false;
             }
         }
@@ -54,8 +54,10 @@ void setup() {
         getMessageFromServer();
     }
 
-    motor.begin(MOTOR_PIN);
-    servo.begin(SERVO_PIN);
+    serialIO.logMsg(LOG_INFO, "Connected to PI");
+
+    motor.begin(MOTOR_PIN, &serialIO);
+    servo.begin(SERVO_PIN, &serialIO);
 }
 
 void loop() {

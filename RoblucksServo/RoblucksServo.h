@@ -22,7 +22,7 @@ private:
     void _ServoOpertation(int requestedDirection);
 
 public:
-    void begin(short pin, bool sendToServo = true);
+    void begin(short pin, SerialIO *serialIO, bool sendToServo = true);
     bool processRequest();
 };
 
