@@ -35,7 +35,7 @@ bool getMessageFromServer(){
                 break;
             }
             default: {
-                serialIO.logMsg(LOG_ERROR, "Unkown message recevied");
+                serialIO.logMsg(LOG_ERROR, "Unknown message recevied");
                 return false;
             }
         }

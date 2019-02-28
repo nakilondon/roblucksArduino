@@ -16,14 +16,14 @@ void RoblucksServo::begin(short pin, SerialIO *serialIO, bool sendToServo) {
 
 bool RoblucksServo::processRequest()
 {
-    ServoCmd servoCmd = (ServoCmd)_serialIO.read_i8();
+    ServoCmd servoCmd = (ServoCmd)_serialIO.read_ui8();
 
     String msgToPI = "In Servo, cmd: ";
     msgToPI += String(servoCmd);
 
     uint8_t howFar = 0;
     if(servoCmd != CENTER) {
-        howFar = static_cast<uint8_t >(_serialIO.read_i8());
+        howFar = static_cast<uint8_t >(_serialIO.read_ui8());
         msgToPI += " how far: ";
         msgToPI += String(howFar);
     }
