@@ -5,15 +5,25 @@
 #include "Motor/Motor.h"
 #include "parameters.h"
 #include "RoblucksServo/RoblucksServo.h"
+#include "Distance/Distance.h"
+#include "Timer/Timer.h"
+#include "../../../../usr/lib/gcc/avr/5.4.0/include/stdint-gcc.h"
 
 Motor               motor;
 RoblucksServo       servo;
-SerialIO            serialIO;
+SerialIO            raspberryPi;
 bool isConnected =  false;
+
+Distance frontDistance(DIRECTION_FRONT, FRONT_ECHO_PIN, FRONT_TRIGGER_PIN);
+Distance backDistance(DIRECTION_BACK, BACK_ECHO_PIN, BACK_TRIGGER_PIN);
+Distance leftDistance(DIRECTION_LEFT, LEFT_ECHO_PIN, LEFT_TRIGGER_PIN);
+Distance rightDistance(DIRECTION_RIGHT, RIGHT_ECHO_PIN, RIGHT_TRIGGER_PIN);
+
+Timer timer;
 
 bool getMessageFromServer(){
     if(Serial.available()) {
-        Message msgRecevied = serialIO.readMessage();
+        Message msgRecevied = raspberryPi.readMessage();
 
         switch(msgRecevied){
             case MOTOR: {
@@ -26,16 +36,28 @@ bool getMessageFromServer(){
             }
             case HELLO: {
                 isConnected = true;
-                serialIO.writeMessage(ALREADY_CONNECTED);
+                raspberryPi.writeMessage(ALREADY_CONNECTED);
                 break;
             }
             case ALREADY_CONNECTED: {
                 isConnected = true;
-                serialIO.writeMessage(ALREADY_CONNECTED);
+                raspberryPi.writeMessage(ALREADY_CONNECTED);
+                break;
+            }
+            case OPERATION:{
+                switch (raspberryPi.read_ui8()) {
+                    case SET_LOG_LEVEL:{
+                        LogLevel newLogLevel = static_cast<LogLevel>(raspberryPi.read_ui8());
+                        raspberryPi.setLogLevel(newLogLevel);
+                    }
+                    default:
+                        raspberryPi.logMsg(LOG_ERROR, "Unknown operation");
+                        break;
+                }
                 break;
             }
             default: {
-                serialIO.logMsg(LOG_ERROR, "Unknown message recevied");
+                raspberryPi.logMsg(LOG_ERROR, "Unknown message recevied");
                 return false;
             }
         }
@@ -43,24 +65,41 @@ bool getMessageFromServer(){
     return false;
 }
 
+void outputDistances(void* context){
+    raspberryPi.logMsg(LOG_DEBUG, "In Output Distances");
+    frontDistance.writeDistance();
+    backDistance.writeDistance();
+    leftDistance.writeDistance();
+    rightDistance.writeDistance();
+}
+
+
 void setup() {
     Serial.begin(SERIAL_BAUD);
-    serialIO.setTrace(true);
+    raspberryPi.setLogLevel(LOG_INFO);
 
     while(!isConnected)
     {
-        serialIO.writeMessage(HELLO);
-        serialIO.wait_for_bytes(1, 1000);
+        raspberryPi.writeMessage(HELLO);
+        raspberryPi.wait_for_bytes(1, 1000);
         getMessageFromServer();
     }
 
-    serialIO.logMsg(LOG_INFO, "Connected to PI");
+    raspberryPi.logMsg(LOG_INFO, "Connected to PI");
 
-    motor.begin(MOTOR_PIN, &serialIO);
-    servo.begin(SERVO_PIN, &serialIO);
+    motor.begin(MOTOR_PIN, &raspberryPi);
+    servo.begin(SERVO_PIN, &raspberryPi);
+
+    frontDistance.begin(&raspberryPi);
+    backDistance.begin(&raspberryPi);
+    leftDistance.begin(&raspberryPi);
+    rightDistance.begin(&raspberryPi);
+
+    timer.every(75, outputDistances,0 );
 }
 
 void loop() {
     getMessageFromServer();
+    timer.update();
 }
 

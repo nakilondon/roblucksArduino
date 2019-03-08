@@ -31,13 +31,13 @@ uint8_t SerialIO::read_ui8() {
 }
 
 void SerialIO::logMsg(enum LogLevel logLevel, String traceMsg) {
-    if (_sendTrace) {
+    if (logLevel >= _loglevel) {
         writeMessage(LOG);
         String logMsg = logLevel + traceMsg;
         Serial.println(logMsg);
     }
 }
 
-void SerialIO::setTrace(bool sendTrace) {
-    _sendTrace = sendTrace;
+void SerialIO::setLogLevel(LogLevel loglevel) {
+    _loglevel = loglevel;
 }

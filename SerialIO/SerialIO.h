@@ -11,10 +11,10 @@
 
 class SerialIO {
 private:
-    bool _sendTrace;
+    LogLevel _loglevel;
 
 public:
-    void setTrace(bool sendTrace);
+    void setLogLevel(LogLevel loglevel);
     void wait_for_bytes(int num_bytes, unsigned long timeout);
     uint8_t read_ui8();
     void writeMessage(enum Message message);

@@ -12,8 +12,10 @@ enum Message {
     SERVO = 2,
     MOTOR = 3,
     ALREADY_CONNECTED = 4,
-    ERROR = 5,
-    RECEIVED = 6,
+    DISTANCE = 5,
+    OPERATION = 6,
+//    ERROR = 5,
+//    RECEIVED = 6,
  //   STOP = 6,
     LOG = 7
 };
@@ -23,6 +25,10 @@ enum MotorCmd {
     REVERSE = 2,
     STOP = 3,
     ARM = 4
+};
+
+enum Operation {
+    SET_LOG_LEVEL = 1
 };
 
 enum ServoCmd{

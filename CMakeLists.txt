@@ -12,4 +12,4 @@ set(${CMAKE_PROJECT_NAME}_PORT /dev/ttyACM0)
 # set(mega.upload.protocol wiring)
 # set(mega.upload.speed 115200)
 
-generate_arduino_firmware(${CMAKE_PROJECT_NAME} SRCS Motor SerialIO RoblucksServo )
+generate_arduino_firmware(${CMAKE_PROJECT_NAME} SRCS Motor SerialIO RoblucksServo Distance Timer)
