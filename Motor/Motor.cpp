@@ -62,7 +62,7 @@ bool Motor::processRequest()
             break;
         }
         default:{
-            _serialIO.logMsg(LOG_ERROR, "Unkown motor request");
+            _serialIO.logMsg(LOG_ERROR, "Unknown motor request");
             break;
         }
     }

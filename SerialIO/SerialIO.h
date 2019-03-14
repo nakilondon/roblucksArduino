@@ -11,7 +11,7 @@
 
 class SerialIO {
 private:
-    LogLevel _loglevel;
+    static LogLevel _loglevel;
 
 public:
     void setLogLevel(LogLevel loglevel);

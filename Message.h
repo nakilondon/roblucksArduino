@@ -28,7 +28,10 @@ enum MotorCmd {
 };
 
 enum Operation {
-    SET_LOG_LEVEL = 1
+    SET_LOG_LEVEL = 1,
+    TURN_DISTANCES_OFF = 2,
+    TURN_DISTANCES_ON = 3
+
 };
 
 enum ServoCmd{
@@ -39,7 +42,7 @@ enum ServoCmd{
 
 typedef enum Message Message;
 
-enum LogLevel {
+typedef enum LogLevel {
     LOG_DEBUG = 0,
     LOG_INFO = 1,
     LOG_WARNING = 2,
@@ -47,6 +50,6 @@ enum LogLevel {
     LOG_CRITICAL = 4
 };
 
-typedef enum LogLevel LogLevel;
+//typedef enum LogLevel LogLevel;
 
 #endif //CMAKELISTS_TXT_ORDERS_H

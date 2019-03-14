@@ -21,7 +21,9 @@ void Distance::setAlertDistances(int alertMin, int alertMax) {
 
 void Distance::writeDistance() {
     uint8_t distance = ping_cm();
-    uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction), distance};
-    for(int i = 0; i < sizeof(distantMessage); i++)
-        _raspberryPi.write_ui8(distantMessage[i]);
+    if (distance>0 && distance < 100) {
+        uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction), distance};
+        for (int i = 0; i < sizeof(distantMessage); i++)
+            _raspberryPi.write_ui8(distantMessage[i]);
+    }
 }

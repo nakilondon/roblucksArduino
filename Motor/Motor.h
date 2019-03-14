@@ -11,7 +11,7 @@
 #define FORWARD_MAX         1680
 #define FORWARD_MIN         1550
 #define REVERSE_MAX         1320
-#define REVERSE_MIN         1430
+#define REVERSE_MIN         1425
 #define THROTTLE_BAKE       1500
 #define THROTTLE_NETURAL    1500
 

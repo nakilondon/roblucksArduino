@@ -8,14 +8,17 @@
 #include "Distance/Distance.h"
 #include "Timer/Timer.h"
 #include "../../../../usr/lib/gcc/avr/5.4.0/include/stdint-gcc.h"
+#include "../../../../usr/share/arduino/hardware/arduino/cores/arduino/WString.h"
 
 Motor               motor;
 RoblucksServo       servo;
 SerialIO            raspberryPi;
 bool isConnected =  false;
+bool sendDistances = true;
+int8_t distanceTimerId = 0;
 
 Distance frontDistance(DIRECTION_FRONT, FRONT_ECHO_PIN, FRONT_TRIGGER_PIN);
-Distance backDistance(DIRECTION_BACK, BACK_ECHO_PIN, BACK_TRIGGER_PIN);
+//Distance backDistance(DIRECTION_BACK, BACK_ECHO_PIN, BACK_TRIGGER_PIN);
 Distance leftDistance(DIRECTION_LEFT, LEFT_ECHO_PIN, LEFT_TRIGGER_PIN);
 Distance rightDistance(DIRECTION_RIGHT, RIGHT_ECHO_PIN, RIGHT_TRIGGER_PIN);
 
@@ -35,20 +38,46 @@ bool getMessageFromServer(){
                 break;
             }
             case HELLO: {
-                isConnected = true;
+                raspberryPi.logMsg(LOG_INFO, "Hello received");
                 raspberryPi.writeMessage(ALREADY_CONNECTED);
                 break;
             }
             case ALREADY_CONNECTED: {
                 isConnected = true;
+                raspberryPi.logMsg(LOG_INFO, "Already Connected received");
                 raspberryPi.writeMessage(ALREADY_CONNECTED);
                 break;
             }
             case OPERATION:{
-                switch (raspberryPi.read_ui8()) {
+                switch (static_cast<Operation>(raspberryPi.read_ui8())) {
                     case SET_LOG_LEVEL:{
                         LogLevel newLogLevel = static_cast<LogLevel>(raspberryPi.read_ui8());
+                        raspberryPi.logMsg(LOG_INFO, "Setting Log Level to " + String(newLogLevel));
                         raspberryPi.setLogLevel(newLogLevel);
+                        break;
+                    }
+                    case TURN_DISTANCES_ON: {
+                        raspberryPi.logMsg(LOG_INFO, "Turning distance on requested");
+                        sendDistances = true;
+                        if (distanceTimerId == 0) {
+                            distanceTimerId = timer.every(65, outputDistances, 0);
+                            raspberryPi.logMsg(LOG_INFO, "Turning distance timer on");
+                        } else
+                            raspberryPi.logMsg(LOG_INFO, "Distance timer already set");
+                        break;
+                    }
+                    case TURN_DISTANCES_OFF: {
+                        sendDistances = false;
+                        raspberryPi.logMsg(LOG_INFO, "Turning distance off requested, sendDistances = " + String(sendDistances));
+
+                        if (distanceTimerId != 0) {
+                            raspberryPi.logMsg(LOG_INFO, "Turning distance timer off");
+                            timer.stop(distanceTimerId);
+                            distanceTimerId = 0;
+                        } else
+                            raspberryPi.logMsg(LOG_INFO, "Distance timer not set");
+
+                        break;
                     }
                     default:
                         raspberryPi.logMsg(LOG_ERROR, "Unknown operation");
@@ -66,9 +95,16 @@ bool getMessageFromServer(){
 }
 
 void outputDistances(void* context){
-    raspberryPi.logMsg(LOG_DEBUG, "In Output Distances");
+
+    if (!sendDistances) {
+        timer.stop(distanceTimerId);
+        return;
+    }
+
+    raspberryPi.logMsg(LOG_DEBUG, "In Output Distances" );
+
     frontDistance.writeDistance();
-    backDistance.writeDistance();
+  //  backDistance.writeDistance();
     leftDistance.writeDistance();
     rightDistance.writeDistance();
 }
@@ -91,11 +127,12 @@ void setup() {
     servo.begin(SERVO_PIN, &raspberryPi);
 
     frontDistance.begin(&raspberryPi);
-    backDistance.begin(&raspberryPi);
+//    backDistance.begin(&raspberryPi);
     leftDistance.begin(&raspberryPi);
     rightDistance.begin(&raspberryPi);
 
-    timer.every(75, outputDistances,0 );
+    if (sendDistances)
+        distanceTimerId = timer.every(65, outputDistances,0 );
 }
 
 void loop() {
