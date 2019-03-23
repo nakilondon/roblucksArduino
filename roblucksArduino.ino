@@ -17,10 +17,10 @@ bool isConnected =  false;
 bool sendDistances = true;
 int8_t distanceTimerId = 0;
 
-Distance frontDistance(DIRECTION_FRONT, FRONT_ECHO_PIN, FRONT_TRIGGER_PIN);
-//Distance backDistance(DIRECTION_BACK, BACK_ECHO_PIN, BACK_TRIGGER_PIN);
-Distance leftDistance(DIRECTION_LEFT, LEFT_ECHO_PIN, LEFT_TRIGGER_PIN);
-Distance rightDistance(DIRECTION_RIGHT, RIGHT_ECHO_PIN, RIGHT_TRIGGER_PIN);
+Distance frontDistance(DIRECTION_FRONT, FRONT_PIN);
+//Distance backDistance(DIRECTION_BACK, BACK_PIN);
+Distance leftDistance(DIRECTION_LEFT, LEFT_PIN);
+Distance rightDistance(DIRECTION_RIGHT, RIGHT_PIN);
 
 Timer timer;
 

@@ -5,8 +5,8 @@
 #include "Distance.h"
 #include "../Message.h"
 
-Distance::Distance(Direction dirtection, int echoPin, int triggerPin)
-    : NewPing(triggerPin,echoPin,DEFAULT_MAX_DISTANCE){
+Distance::Distance(Direction dirtection, int irPin)
+    :SharpIR(irPin, SENSOR_MODEL){
     _direction = dirtection;
 }
 
@@ -20,9 +20,14 @@ void Distance::setAlertDistances(int alertMin, int alertMax) {
 }
 
 void Distance::writeDistance() {
-    uint8_t distance = ping_cm();
-    if (distance>0 && distance < 100) {
-        uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction), distance};
+    union {
+        int measureInt;
+        uint8_t measureUint8[2];
+    };
+
+    int measureInt = distance();
+    if (measure>0 && measure < 100) {
+        uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction), measureUint8};
         for (int i = 0; i < sizeof(distantMessage); i++)
             _raspberryPi.write_ui8(distantMessage[i]);
     }

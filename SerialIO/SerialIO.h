@@ -19,6 +19,7 @@ public:
     uint8_t read_ui8();
     void writeMessage(enum Message message);
     void write_ui8(uint8_t num);
+    void write_int(int num);
     Message readMessage();
     void logMsg(LogLevel logLevel, String traceMsg);
 };

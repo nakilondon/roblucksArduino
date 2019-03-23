@@ -21,6 +21,10 @@ void SerialIO::write_ui8(uint8_t data) {
     Serial.write(data);
 }
 
+void SerialIO::write_int(int data) {
+    Serial.write(data);
+}
+
 Message SerialIO::readMessage() {
     return (Message) Serial.read();
 }

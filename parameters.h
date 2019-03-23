@@ -10,13 +10,9 @@
 #define MOTOR_PIN             10
 #define SERVO_PIN              9
 
-#define RIGHT_TRIGGER_PIN  12  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define RIGHT_ECHO_PIN     11  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define LEFT_TRIGGER_PIN    8  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define LEFT_ECHO_PIN       5  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define FRONT_TRIGGER_PIN   7  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define FRONT_ECHO_PIN      6  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define BACK_TRIGGER_PIN    4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define BACK_ECHO_PIN       3  // Arduino pin tied to echo pin on the ultrasonic senor
+#define LEFT_PIN    A0
+#define RIGHT_PIN   A1
+#define FRONT_PIN   A2
+#define BACK_PIN    A3
 
 #endif //CMAKELISTS_TXT_PARAMETERS_H
