@@ -6,9 +6,10 @@
 #define ROBLUCKSARDUINO_DISTANCE_H
 
 #include "../SerialIO/SerialIO.h"
-#include "NewPing.h"
+#include "SharpIR.h"
 
 #define DEFAULT_MAX_DISTANCE 200
+#define SENSOR_MODEL 1080
 #define DEFAULT_ALERT_MIN 0
 #define DEFAULT_ALERT_MAX 0
 #define DEFAULT_INTERVAL 500
@@ -21,7 +22,7 @@ enum Direction {
 };
 
 
-class Distance : NewPing {
+class Distance : SharpIR {
 private:
     Direction _direction;
     SerialIO _raspberryPi;
@@ -30,7 +31,7 @@ private:
     int _alertMax;
 
 public:
-    Distance(Direction dirtection, int echoPin, int triggerPin );
+    Distance(Direction dirtection, int irPin );
     void begin(SerialIO *raspberryPi);
     void setAlertDistances(int alertMin, int alertMax);
     void writeDistance();
