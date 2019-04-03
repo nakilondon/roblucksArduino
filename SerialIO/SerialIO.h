@@ -15,7 +15,7 @@ private:
 
 public:
     void setLogLevel(LogLevel loglevel);
-    void wait_for_bytes(int num_bytes, unsigned long timeout);
+    bool wait_for_bytes(int num_bytes, unsigned long timeout);
     uint8_t read_ui8();
     void writeMessage(enum Message message);
     void write_ui8(uint8_t num);

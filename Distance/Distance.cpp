@@ -20,15 +20,24 @@ void Distance::setAlertDistances(int alertMin, int alertMax) {
 }
 
 void Distance::writeDistance() {
-    union {
-        int measureInt;
-        uint8_t measureUint8[2];
-    };
+    int measure = distance();
 
-    int measureInt = distance();
+    String msgToPI = "In writeDistance, sensor: ";
+    msgToPI += String(_direction);
+    msgToPI += " distance: ";
+    msgToPI += String(measure);
+    _raspberryPi.logMsg(LOG_DEBUG, msgToPI);
+
     if (measure>0 && measure < 100) {
-        uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction), measureUint8};
+
+      //  uint8_t measureu8 = static_cast<uint8_t >(measure);
+        uint8_t distantMessage[] = {DISTANCE, static_cast<uint8_t >(_direction)};
         for (int i = 0; i < sizeof(distantMessage); i++)
             _raspberryPi.write_ui8(distantMessage[i]);
+        delay(10);
+        _raspberryPi.write_int(measure);
+    } else {
+        _raspberryPi.logMsg(LOG_DEBUG, "Not sending distance");
     }
 }
+

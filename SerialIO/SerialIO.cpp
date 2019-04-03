@@ -6,10 +6,15 @@
 #include "../Message.h"
 #include <Arduino.h>
 
-void SerialIO::wait_for_bytes(int num_bytes, unsigned long timeout) {
+bool SerialIO::wait_for_bytes(int num_bytes, unsigned long timeout) {
     unsigned long startTime = millis();
     //Wait for incoming bytes or exit if timeout
     while ((Serial.available() < num_bytes) && (millis() - startTime < timeout)){}
+
+    if (Serial.available() < num_bytes)
+        return false;
+
+    return true;
 }
 
 void SerialIO::writeMessage(enum Message message) {
@@ -22,7 +27,13 @@ void SerialIO::write_ui8(uint8_t data) {
 }
 
 void SerialIO::write_int(int data) {
-    Serial.write(data);
+    union {
+        int dataInt;
+        uint8_t dataUi8[2];
+    } dataUnion;
+
+    dataUnion.dataInt = data;
+    Serial.write(dataUnion.dataUi8, 2);
 }
 
 Message SerialIO::readMessage() {
@@ -37,11 +48,10 @@ uint8_t SerialIO::read_ui8() {
 void SerialIO::logMsg(LogLevel logLevel, String traceMsg) {
     if (_loglevel <= logLevel) {
         writeMessage(LOG);
-        String logMsg = String(logLevel) + traceMsg;
+        String logMsg = "1" + traceMsg;
         Serial.println(logMsg);
     }
 }
-
 void SerialIO::setLogLevel(LogLevel loglevel) {
     _loglevel = loglevel;
     logMsg(LOG_INFO, "Log level set = " + String(_loglevel));

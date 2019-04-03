@@ -14,7 +14,7 @@ Motor               motor;
 RoblucksServo       servo;
 SerialIO            raspberryPi;
 bool isConnected =  false;
-bool sendDistances = true;
+bool sendDistances = false;
 int8_t distanceTimerId = 0;
 
 Distance frontDistance(DIRECTION_FRONT, FRONT_PIN);
@@ -48,40 +48,52 @@ bool getMessageFromServer(){
                 raspberryPi.writeMessage(ALREADY_CONNECTED);
                 break;
             }
-            case OPERATION:{
-                switch (static_cast<Operation>(raspberryPi.read_ui8())) {
-                    case SET_LOG_LEVEL:{
-                        LogLevel newLogLevel = static_cast<LogLevel>(raspberryPi.read_ui8());
-                        raspberryPi.logMsg(LOG_INFO, "Setting Log Level to " + String(newLogLevel));
-                        raspberryPi.setLogLevel(newLogLevel);
-                        break;
-                    }
-                    case TURN_DISTANCES_ON: {
-                        raspberryPi.logMsg(LOG_INFO, "Turning distance on requested");
-                        sendDistances = true;
-                        if (distanceTimerId == 0) {
-                            distanceTimerId = timer.every(65, outputDistances, 0);
-                            raspberryPi.logMsg(LOG_INFO, "Turning distance timer on");
-                        } else
-                            raspberryPi.logMsg(LOG_INFO, "Distance timer already set");
-                        break;
-                    }
-                    case TURN_DISTANCES_OFF: {
-                        sendDistances = false;
-                        raspberryPi.logMsg(LOG_INFO, "Turning distance off requested, sendDistances = " + String(sendDistances));
+            case OPERATION: {
+                if (raspberryPi.wait_for_bytes(1, 1000)) {
+                    switch (static_cast<Operation>(raspberryPi.read_ui8())) {
+                        case SET_LOG_LEVEL: {
+                            if (raspberryPi.wait_for_bytes(1, 1000)) {
+                                LogLevel newLogLevel = static_cast<LogLevel>(raspberryPi.read_ui8());
+                                raspberryPi.logMsg(LOG_INFO, "Setting Log Level to " + String(newLogLevel));
+                                raspberryPi.setLogLevel(newLogLevel);
+                            } else {
+                                raspberryPi.logMsg(LOG_ERROR, "log level timed out");
+                            }
+                            break;
+                        }
+                        case TURN_DISTANCES_ON: {
+                            raspberryPi.logMsg(LOG_INFO, "Turning distance on requested");
+                            sendDistances = true;
+                            if (distanceTimerId == 0) {
+                                distanceTimerId = timer.every(110, outputDistances, 0);
+                                raspberryPi.logMsg(LOG_INFO, "Turning distance timer on");
+                            } else
+                                raspberryPi.logMsg(LOG_INFO, "Distance timer already set");
+                            break;
+                        }
+                        case TURN_DISTANCES_OFF: {
+                            sendDistances = false;
+                            raspberryPi.logMsg(LOG_INFO,
+                                               "Turning distance off requested, sendDistances = " +
+                                               String(sendDistances));
 
-                        if (distanceTimerId != 0) {
-                            raspberryPi.logMsg(LOG_INFO, "Turning distance timer off");
-                            timer.stop(distanceTimerId);
-                            distanceTimerId = 0;
-                        } else
-                            raspberryPi.logMsg(LOG_INFO, "Distance timer not set");
+                            if (distanceTimerId != 0) {
+                                raspberryPi.logMsg(LOG_INFO, "Turning distance timer off");
+                                timer.stop(distanceTimerId);
+                                distanceTimerId = 0;
+                            } else
+                                raspberryPi.logMsg(LOG_INFO, "Distance timer not set");
 
-                        break;
+                            break;
+                        }
+                        default: {
+                            raspberryPi.logMsg(LOG_ERROR, "Unknown operation");
+                            break;
+                        }
+
                     }
-                    default:
-                        raspberryPi.logMsg(LOG_ERROR, "Unknown operation");
-                        break;
+                } else {
+                    raspberryPi.logMsg(LOG_ERROR, "Operation message timed out");
                 }
                 break;
             }
@@ -102,13 +114,15 @@ void outputDistances(void* context){
     }
 
     raspberryPi.logMsg(LOG_DEBUG, "In Output Distances" );
-
+    delay(10);
     frontDistance.writeDistance();
+    delay(10);
   //  backDistance.writeDistance();
     leftDistance.writeDistance();
+    delay(10);
     rightDistance.writeDistance();
+    delay(10);
 }
-
 
 void setup() {
     Serial.begin(SERIAL_BAUD);
@@ -117,9 +131,11 @@ void setup() {
     while(!isConnected)
     {
         raspberryPi.writeMessage(HELLO);
-        raspberryPi.wait_for_bytes(1, 1000);
-        getMessageFromServer();
+        if(raspberryPi.wait_for_bytes(1, 1000))
+            getMessageFromServer();
     }
+
+    delay(1000);
 
     raspberryPi.logMsg(LOG_INFO, "Connected to PI");
 
@@ -132,7 +148,7 @@ void setup() {
     rightDistance.begin(&raspberryPi);
 
     if (sendDistances)
-        distanceTimerId = timer.every(65, outputDistances,0 );
+        distanceTimerId = timer.every(100, outputDistances,0 );
 }
 
 void loop() {

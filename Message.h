@@ -50,6 +50,6 @@ typedef enum LogLevel {
     LOG_CRITICAL = 4
 };
 
-//typedef enum LogLevel LogLevel;
+typedef enum LogLevel LogLevel;
 
 #endif //CMAKELISTS_TXT_ORDERS_H
